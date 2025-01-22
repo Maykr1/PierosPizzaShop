@@ -1,42 +1,32 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
         //Create Customer
         Customer customer1 = new Customer("Ethan Clark", "555-555-5555");
 
         //Create Pizzas
-        ArrayList<String> toppings1 = new ArrayList<>();
-        toppings1.add("Pepperoni");
-        toppings1.add("Sausage");
-        Pizza pizza1 = new Pizza("Large", "Thin", toppings1);
-
-        ArrayList<String> toppings2 = new ArrayList<>();
-        toppings2.add("Mushroom");
-        toppings2.add("Sausage");
-        Pizza pizza2 = new Pizza("Large", "Regular", toppings2);
-
-        ArrayList<String> toppings3 = new ArrayList<>();
-        toppings3.add("Pepperoni");
-        toppings3.add("Sausage");
-        Pizza pizza3 = new Pizza("Small", "Thick", toppings3);
+        Pizza pizza1 = new Pizza("Large", "Thin", "Pepperoni", "Sausage"); //...toppings allows you to add unlimited parameters in the form of a list
+        Pizza pizza2 = new Pizza("Large", "Regular", "Mushroom", "Sausage");
+        Pizza pizza3 = new Pizza("Small", "Thick", "Banana Peppers", "Pineapple");
 
         //Create Order
-        ArrayList<Pizza> pizzaList = new ArrayList<>();
-        pizzaList.add(pizza1);
-        pizzaList.add(pizza2);
-        pizzaList.add(pizza3);
-        Order order1 = new Order(0001, customer1, pizzaList);
+        Order order1 = new Order(0001, customer1, pizza1, pizza2, pizza3);
         
         //Create PizzaShop
-        ArrayList<Order> orderList = new ArrayList<>();
-        orderList.add(order1);
-        PizzaShop PieroPizza = new PizzaShop(pizzaList, orderList);
+        PizzaShop PieroPizza = new PizzaShop();
 
-        ArrayList<Pizza> pizzaList2 = new ArrayList<>();
-        pizzaList2 = PieroPizza.getMenu();
-        Order order2 = new Order(0001, customer1, pizzaList2);
+        PieroPizza.addMenuItem(pizza1);
+        PieroPizza.addMenuItem(pizza2);
+        PieroPizza.addMenuItem(pizza3);
+
+        //Place order 1
+        PieroPizza.placeOrder(order1);
+
+
+        //Create order 2
+        PieroPizza.getMenu(); //Needs reformatting
+        Order order2 = new Order(0001, customer1, pizza2, pizza3);
 
         PieroPizza.placeOrder(order2);
+        PieroPizza.getOrders();
     }
 }

@@ -4,17 +4,29 @@ public class PizzaShop {
     private ArrayList<Pizza> menu;
     private ArrayList<Order> orders;
 
-    public PizzaShop(ArrayList<Pizza> menu, ArrayList<Order> orders) {
-        this.menu = menu;
-        this.orders = orders;
+    public PizzaShop() {
+        this.menu = new ArrayList<>();
+        this.orders = new ArrayList<>();
     }
 
-    public ArrayList<Pizza> getMenu() {
-        return this.menu;
+    public void getMenu() {
+        if (menu.isEmpty()) {
+            System.out.println("Menu is empty!");
+        } else {
+            for (Pizza pizza : this.menu) {
+                System.out.println(pizza);
+            }
+        }
     }
 
-    public ArrayList<Order> getOrders() {
-        return this.orders;
+    public void getOrders() {
+        if (orders.isEmpty()) {
+            System.out.println("Order list is empty!");
+        } else {
+            for (Order order : this.orders) {
+                System.out.println(order);
+            }
+        }
     }
 
     public void clearOrders() {

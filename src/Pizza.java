@@ -6,10 +6,13 @@ public class Pizza {
     private ArrayList<String> toppings;
     private double price;
 
-    public Pizza(String size, String crust, ArrayList<String> toppings) {
+    public Pizza(String size, String crust, String... toppings) {
         this.size = size;
         this.crust = crust;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>(); //Initialize the ArrayList to prevent it from being NULL
+        for (String topping : toppings) {
+            this.toppings.add(topping);
+        }
         this.price = calculatePrice();
     }
 
@@ -68,5 +71,10 @@ public class Pizza {
 
     public double getPrice() {
         return this.price;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza:\nsize = " + this.size + "\ncrust = " + this.crust + "\ntoppings = " + this.toppings + "\nprice = " + this.price + "\n";
     }
 }

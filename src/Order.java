@@ -7,10 +7,13 @@ public class Order {
     private double totalPrice;
     private String orderStatus; //"Pending" or "Complete"
 
-    public Order(int orderID, Customer customer, ArrayList<Pizza> pizzaList) {
+    public Order(int orderID, Customer customer, Pizza... pizzaList) {
         this.orderID = orderID;
         this.customer = customer;
-        this.pizzaList = pizzaList;
+        this.pizzaList = new ArrayList<>();
+        for (Pizza pizza : pizzaList) {
+            this.pizzaList.add(pizza);
+        }
         this.totalPrice = calculateTotalPrice();
         this.orderStatus = "Pending";
     }
@@ -56,5 +59,10 @@ public class Order {
 
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Order:\nOrderID = " + this.orderID + "\n Customer Name = " + this.customer.getName() + "\n Items = " + this.pizzaList + "\n Total Price = " + this.totalPrice + "\n Order Status = " + this.orderStatus + "\n"; //Note: this.pizzaList is using pizza.ToString(); Needs to be formatted better
     }
 }
