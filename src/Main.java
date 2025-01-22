@@ -12,21 +12,21 @@ public class Main {
         Order order1 = new Order(0001, customer1, pizza1, pizza2, pizza3);
         
         //Create PizzaShop
-        PizzaShop PieroPizza = new PizzaShop();
+        PizzaShop pieroPizza = new PizzaShop();
 
-        PieroPizza.addMenuItem(pizza1);
-        PieroPizza.addMenuItem(pizza2);
-        PieroPizza.addMenuItem(pizza3);
+        pieroPizza.addMenuItem(pizza1);
+        pieroPizza.addMenuItem(pizza2);
+        pieroPizza.addMenuItem(pizza3);
 
         //Place order 1
-        PieroPizza.placeOrder(order1);
+        pieroPizza.placeOrder(order1);
 
 
         //Create order 2
-        PieroPizza.getMenu(); //Needs reformatting
+        pieroPizza.getMenu(); //Needs reformatting
         Order order2 = new Order(0001, customer1, pizza2, pizza3);
 
-        PieroPizza.placeOrder(order2);
-        PieroPizza.getOrders();
+        pieroPizza.placeOrder(order2);
+        pieroPizza.getOrders();
     }
 }
