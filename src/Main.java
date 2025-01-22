@@ -9,7 +9,7 @@ public class Main {
         Pizza pizza3 = new Pizza("Small", "Thick", "Banana Peppers", "Pineapple");
 
         //Create Order
-        Order order1 = new Order(0001, customer1, pizza1, pizza2, pizza3);
+        Order order1 = new Order(Order.generateOrderID(), customer1, pizza1, pizza2, pizza3);
         
         //Create PizzaShop
         PizzaShop pieroPizza = new PizzaShop();
@@ -24,7 +24,7 @@ public class Main {
 
         //Create order 2
         pieroPizza.getMenu(); //Needs reformatting
-        Order order2 = new Order(0001, customer1, pizza2, pizza3);
+        Order order2 = new Order(Order.generateOrderID(), customer1, pizza2, pizza3);
 
         pieroPizza.placeOrder(order2);
         pieroPizza.getOrders();

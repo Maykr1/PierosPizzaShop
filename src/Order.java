@@ -6,6 +6,7 @@ public class Order {
     private ArrayList<Pizza> pizzaList;
     private double totalPrice;
     private String orderStatus; //"Pending" or "Complete"
+    private static int nextOrderID = 1;
 
     public Order(int orderID, Customer customer, Pizza... pizzaList) {
         this.orderID = orderID;
@@ -64,5 +65,9 @@ public class Order {
     @Override
     public String toString() {
         return "Order:\nOrderID = " + this.orderID + "\n Customer Name = " + this.customer.getName() + "\n Items = " + this.pizzaList + "\n Total Price = " + this.totalPrice + "\n Order Status = " + this.orderStatus + "\n"; //Note: this.pizzaList is using pizza.ToString(); Needs to be formatted better
+    }
+
+    public static int generateOrderID() {
+        return nextOrderID++;
     }
 }
