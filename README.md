@@ -16,3 +16,4 @@ To do:
 
 Possible additons:
 - JavaFX
+- Make Pizza and Order nested classes of PizzaShop (Are they used at all outside of PizzaShop?)
