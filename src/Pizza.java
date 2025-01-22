@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Pizza {
-    private String size;
-    private String crust;
+    private String size; //Small, Medium, Large, Extra Large
+    private String crust; //Thin, Regular, Thick
     private ArrayList<String> toppings;
     private double price;
 
@@ -27,8 +27,19 @@ public class Pizza {
             basePrice += 9; //Since Java does not support default parameters for a constructor, assume pizza is large here
         }
 
+        double crustPrice = 0;
+
+        if (crust == "thin") {
+            crustPrice -= 1;
+        } else if (crust == "thick") {
+            crustPrice += 2;
+        } else {
+            crustPrice = 0; //Default to crust = normal
+        }
+
         double toppingPrice = this.toppings.size() * 0.5;
-        return basePrice + toppingPrice;
+        
+        return basePrice + crustPrice + toppingPrice;
     }
 
     public String getSize() {
